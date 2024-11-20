@@ -28,12 +28,19 @@ namespace GestionDeProcesosRecursos.src.Core
         // Objeto para sincronización
         private object lockObject = new object();
 
+        // Evento que se dispara cuando se actualiza la lista de procesos
+        public event Action ProcessListUpdated;
+
+        // Indica si la planificación está en ejecución
+        private bool isScheduling;
+
         private ResourceManager resourceManager;
 
         /// <summary>
         /// Constructor del gestor de procesos.
         /// </summary>
         /// <param name="quantum">Quantum de tiempo en milisegundos.</param>
+        /// <param name="resourceManager">Gestor de recursos.</param>
         public ProcessManager(int quantum, ResourceManager resourceManager)
         {
             this.quantum = quantum;
@@ -41,6 +48,7 @@ namespace GestionDeProcesosRecursos.src.Core
             readyQueue = new Queue<Process>();
             allProcesses = new List<Process>();
             processCounter = 0;
+            isScheduling = false;
         }
 
         /// <summary>
@@ -50,14 +58,19 @@ namespace GestionDeProcesosRecursos.src.Core
         /// <returns>El proceso creado.</returns>
         public Process CreateProcess(int priority)
         {
+            Process process;
             lock (lockObject)
             {
-                var process = new Process(++processCounter, priority);
+                process = new Process(++processCounter, priority);
                 process.ControlBlock.State = ProcessState.Ready;
                 allProcesses.Add(process);
                 readyQueue.Enqueue(process);
-                return process;
+                // OnProcessListUpdated(); // <-- Se llama al evento dentro del bloqueo ///// YA NO 
+                // return process;
             }
+            // Llamar a OnProcessListUpdated() fuera del bloqueo
+            OnProcessListUpdated();
+            return process;
         }
 
         /// <summary>
@@ -65,9 +78,15 @@ namespace GestionDeProcesosRecursos.src.Core
         /// </summary>
         public void StartScheduling()
         {
+            if (isScheduling)
+                return;
+
+            isScheduling = true;
+
+            // Usar System.Threading.Thread por que si no la mamada se confunde
             System.Threading.Thread schedulingThread = new System.Threading.Thread(() =>
             {
-                while (true)
+                while (isScheduling)
                 {
                     Process currentProcess = null;
 
@@ -77,40 +96,24 @@ namespace GestionDeProcesosRecursos.src.Core
                         {
                             currentProcess = readyQueue.Dequeue();
                             currentProcess.ControlBlock.State = ProcessState.Running;
+                            // No llamar a OnProcessListUpdated() aquí
                         }
                     }
 
                     if (currentProcess != null)
                     {
+                        OnProcessListUpdated(); // Llamar fuera del bloqueo
+
                         // Iniciar los hilos del proceso
                         currentProcess.Start();
 
-                        // Simular solicitud de recurso
-                        bool resourceAcquired = resourceManager.RequestResource(1, currentProcess);
-                        if (!resourceAcquired)
-                        {
-                            // Si el recurso no está disponible, bloquear el proceso
-                            currentProcess.ControlBlock.State = ProcessState.Blocked;
-                            // Reagregar a la cola de listos después de un tiempo
-                            System.Threading.Thread.Sleep(1000);
-                            lock (lockObject)
-                            {
-                                currentProcess.ControlBlock.State = ProcessState.Ready;
-                                readyQueue.Enqueue(currentProcess);
-                            }
-                            continue;
-                        }
-
                         // Simular ejecución por quantum de tiempo
-                        System.Threading.Thread.Sleep(quantum);
-
-                        // Liberar el recurso
-                        resourceManager.ReleaseResource(1);
+                        Thread.Sleep(quantum);
 
                         // Detener los hilos del proceso
-                        currentProcess.Terminate();
+                        currentProcess.StopThreads();
 
-                        // Simular avance del contador de programa
+                        // "Simular" avance del contador de programa
                         currentProcess.ControlBlock.ProgramCounter += quantum;
 
                         // Verificar si el proceso ha terminado
@@ -127,12 +130,13 @@ namespace GestionDeProcesosRecursos.src.Core
                                 currentProcess.ControlBlock.State = ProcessState.Ready;
                                 readyQueue.Enqueue(currentProcess);
                             }
+                            OnProcessListUpdated();
                         }
                     }
                     else
                     {
                         // Si no hay procesos listos, esperar antes de verificar nuevamente
-                        System.Threading.Thread.Sleep(100);
+                        Thread.Sleep(100);
                     }
                 }
             });
@@ -151,11 +155,8 @@ namespace GestionDeProcesosRecursos.src.Core
             {
                 process.Terminate();
                 allProcesses.Remove(process);
-                // Liberar recursos y memoria asignados
-                process.ControlBlock.AllocatedResources.Clear();
-                process.ControlBlock.MemoryStart = 0;
-                process.ControlBlock.MemorySize = 0;
             }
+            OnProcessListUpdated(); // <-- Se llama al evento fuera del bloqueo por que si no se confunde y nos da un deadlock
         }
 
         /// <summary>
@@ -165,7 +166,7 @@ namespace GestionDeProcesosRecursos.src.Core
         /// <returns>Verdadero si el proceso ha terminado; de lo contrario, falso.</returns>
         private bool SimulateProcessExecution(Process process)
         {
-            // Lógica simulada: terminar el proceso después de un cierto tiempo
+            // Lógica simulada: terminar el proceso después de cierto contador
             if (process.ControlBlock.ProgramCounter >= 5000)
             {
                 return true;
@@ -186,6 +187,14 @@ namespace GestionDeProcesosRecursos.src.Core
             {
                 return new List<Process>(allProcesses);
             }
+        }
+
+        /// <summary>
+        /// Dispara el evento de actualización de la lista de procesos.
+        /// </summary>
+        private void OnProcessListUpdated()
+        {
+            ProcessListUpdated?.Invoke();
         }
     }
 }

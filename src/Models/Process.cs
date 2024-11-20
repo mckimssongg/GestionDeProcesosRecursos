@@ -16,7 +16,7 @@ namespace GestionDeProcesosRecursos.src.Models
         public PCB ControlBlock { get; private set; }
 
         // Lista de hilos asociados al proceso
-        public List<Thread> Threads { get; private set; }
+        public List<ProcessThread> Threads { get; private set; }
 
         /// <summary>
         /// Constructor del proceso.
@@ -26,7 +26,7 @@ namespace GestionDeProcesosRecursos.src.Models
         public Process(int processId, int priority)
         {
             ControlBlock = new PCB(processId, priority);
-            Threads = new List<Thread>();
+            Threads = new List<ProcessThread>();
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace GestionDeProcesosRecursos.src.Models
         /// <param name="startAction">Acción que ejecutará el hilo.</param>
         public void CreateThread(System.Threading.ThreadStart startAction)
         {
-            var thread = new Thread(this, startAction);
+            var thread = new ProcessThread(this, startAction);
             Threads.Add(thread);
         }
 
@@ -44,7 +44,6 @@ namespace GestionDeProcesosRecursos.src.Models
         /// </summary>
         public void Start()
         {
-            ControlBlock.State = ProcessState.Running;
             foreach (var thread in Threads)
             {
                 thread.Start();
@@ -52,15 +51,38 @@ namespace GestionDeProcesosRecursos.src.Models
         }
 
         /// <summary>
-        /// Detiene la ejecución de todos los hilos del proceso.
+        /// Detiene la ejecución de todos los hilos del proceso sin terminarlo.
+        /// </summary>
+        public void StopThreads()
+        {
+            foreach (var thread in Threads)
+            {
+                thread.Stop();
+            }
+        }
+
+        /// <summary>
+        /// Reanuda la ejecución de todos los hilos del proceso.
+        /// </summary>
+        public void ResumeThreads()
+        {
+            foreach (var thread in Threads)
+            {
+                thread.Resume();
+            }
+        }
+
+        /// <summary>
+        /// Termina el proceso y todos sus hilos.
         /// </summary>
         public void Terminate()
         {
             ControlBlock.State = ProcessState.Terminated;
-            foreach (var thread in Threads)
-            {
-                thread.Abort();
-            }
+            //foreach (var thread in Threads)
+            //{
+            //    thread.Abort();
+            //}
+            StopThreads();
             // Liberar recursos y memoria asociados
             ControlBlock.AllocatedResources.Clear();
             ControlBlock.MemoryStart = 0;
