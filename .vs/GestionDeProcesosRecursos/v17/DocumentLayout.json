@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\core\\processmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\core\\processmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\models\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\models\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\core\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\core\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\models\\pcb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\models\\pcb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\models\\thread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\models\\thread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\models\\process.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\models\\process.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|c:\\users\\mkc\\proyectos\\gestiondeprocesosrecursos\\src\\enums\\processstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01608DF-5451-4992-9E99-E1136B59F813}|GestionDeProcesosRecursos.csproj|solutionrelative:src\\enums\\processstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +55,97 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{f4e46f1e-cf83-40aa-b568-a627394bc994}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResourceManager.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Core\\ResourceManager.cs",
+              "RelativeDocumentMoniker": "src\\Core\\ResourceManager.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Core\\ResourceManager.cs",
+              "RelativeToolTip": "src\\Core\\ResourceManager.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAwwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:15:35.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Resource.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\Resource.cs",
+              "RelativeDocumentMoniker": "src\\Models\\Resource.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\Resource.cs",
+              "RelativeToolTip": "src\\Models\\Resource.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:14:52.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProcessManager.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Core\\ProcessManager.cs",
+              "RelativeDocumentMoniker": "src\\Core\\ProcessManager.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Core\\ProcessManager.cs",
+              "RelativeToolTip": "src\\Core\\ProcessManager.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAowIoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:11:58.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Thread.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\Thread.cs",
+              "RelativeDocumentMoniker": "src\\Models\\Thread.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\Thread.cs",
+              "RelativeToolTip": "src\\Models\\Thread.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:11:01.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Process.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\Process.cs",
+              "RelativeDocumentMoniker": "src\\Models\\Process.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\Process.cs",
+              "RelativeToolTip": "src\\Models\\Process.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:10:20.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PCB.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\PCB.cs",
+              "RelativeDocumentMoniker": "src\\Models\\PCB.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Models\\PCB.cs",
+              "RelativeToolTip": "src\\Models\\PCB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:09:27.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProcessState.cs",
+              "DocumentMoniker": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Enums\\ProcessState.cs",
+              "RelativeDocumentMoniker": "src\\Enums\\ProcessState.cs",
+              "ToolTip": "C:\\Users\\mkc\\Proyectos\\GestionDeProcesosRecursos\\src\\Enums\\ProcessState.cs",
+              "RelativeToolTip": "src\\Enums\\ProcessState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T07:08:55.951Z",
+              "EditorCaption": ""
             }
           ]
         },
